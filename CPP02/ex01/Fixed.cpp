@@ -14,7 +14,7 @@ Fixed::Fixed(const Fixed& source)
 
 Fixed::~Fixed()
 {
-	std::cout << "Default desctuctor called" << std::endl;
+	std::cout << "Destructor called" << std::endl;
 	return ;
 }
 
