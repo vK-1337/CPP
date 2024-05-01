@@ -1,11 +1,16 @@
-SRCS = main.cpp \
+SRCS = 	main.cpp \
+		Point.cpp \
+		Fixed.cpp \
+		bsp.cpp \
 
-OBJS = $(SRCS:.c=.o)
 
-NAME = #INSERT NAME OF .a HERE
+OBJS = $(SRCS:.cpp=.o)
 
+NAME = fixed
 
-CFLAGS = -Wall -Werror -Wextra
+CC = c++
+
+CFLAGS = -std=c++98 -Wall -Werror -Wextra
 
 # colors
 GREEN = \033[0;32m
@@ -15,8 +20,8 @@ YELLOW = \e[0;93m
 $(NAME): $(OBJS)
 	$(CC) $(OBJS) -o $(NAME)
 	@echo "	 			+---------------------+\n \
-		|  $(YELLOW)  #INSERT_PROGRAM_NAME_HERE $(GREEN)[OK]$(NC)   |\n \
-		+---------------------+"
+					|  $(YELLOW)    Fixed $(GREEN)[OK]$(NC)     |\n \
+					+---------------------+"
 
 
 .c.o:
