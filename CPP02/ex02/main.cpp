@@ -77,7 +77,7 @@ int main( void ) {
     std::cout << Fixed(-8388607.0f) - Fixed(10) << std::endl;
     std::cout << Fixed(42) - Fixed(43) << std::endl;
 
-    std::cout << "SECOND PART OF THE MAIN (FROM 42 SUBJECT)" << std::endl;
+    std::cout << std::endl << "|| SECOND PART OF THE MAIN (FROM 42 SUBJECT) ||" << std::endl << std::endl;
 
     Fixed a;
     Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
