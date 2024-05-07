@@ -8,7 +8,6 @@ int main()
     clap.attack("Vincent");
     scav.attack("Vincent");
     scav.guardGate();
-    frag.guardGate();
     frag.highFiveGuys();
     return (0);
 }

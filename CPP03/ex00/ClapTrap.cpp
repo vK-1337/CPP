@@ -1,5 +1,20 @@
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap(const ClapTrap &rhs)
+{
+    *this = rhs;
+    std::cout << "ClapTrap copy constructor called" << std::endl;
+    return;
+}
+
+ClapTrap&   ClapTrap::operator=( const ClapTrap& rhs ) {
+    this->_name = rhs._name;
+    this->_hitPoints = rhs._hitPoints;
+    this->_energyPoints = rhs._energyPoints;
+    this->_attackDamage = rhs._attackDamage;
+    return *this;
+}
+
 ClapTrap::ClapTrap(std::string name) : _name(name)
 {
     std::cout << "ClapTrap " << this->_name << " has been created." << std::endl;
@@ -14,7 +29,7 @@ ClapTrap::~ClapTrap()
 
 void ClapTrap::attack(const std::string& target)
 {
-    if (this->_hitPoints <= 0 || this->_energyPoints == 0)
+    if (this->_hitPoints <= 0 || this->_energyPoints <= 0)
     {
         if (this->_energyPoints == 0)
             std::cout << "ClapTrap " << this->_name << " has not enough energy points to do anything." << std::endl;
@@ -40,7 +55,7 @@ void ClapTrap::takeDamage(unsigned int amount)
     }
     else
     {
-        std::cout << "ClapTrap " << this->_name << " take " << amount << " points of damage! It has " << this->_hitPoints << "left." << std::endl;
+        std::cout << "ClapTrap " << this->_name << " takes " << amount << " points of damage! It has " << this->_hitPoints << "left." << std::endl;
         this->_hitPoints -= amount;
         if (this->_hitPoints <= 0)
             std::cout << "ClapTrap " << this->_name << " is totally broken. " << std::endl;

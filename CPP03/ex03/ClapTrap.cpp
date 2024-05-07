@@ -6,6 +6,21 @@ ClapTrap::ClapTrap(std::string name) : _name(name)
     return;
 }
 
+ClapTrap::ClapTrap(const ClapTrap &rhs)
+{
+    *this = rhs;
+    std::cout << "ClapTrap copy constructor called" << std::endl;
+    return;
+}
+
+ClapTrap&   ClapTrap::operator=( const ClapTrap& rhs ) {
+    this->_name = rhs._name;
+    this->_hitPoints = rhs._hitPoints;
+    this->_energyPoints = rhs._energyPoints;
+    this->_attackDamage = rhs._attackDamage;
+    return *this;
+}
+
 ClapTrap::~ClapTrap()
 {
     std::cout << "ClapTrap " << this->_name << " has been destroyed." << std::endl;
