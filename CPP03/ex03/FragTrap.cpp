@@ -10,10 +10,11 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 }
 FragTrap::~FragTrap()
 {
+    std::cout << "FragTrap " << this->_name << " has been destroyed." << std::endl;
 	return ;
 }
 
-void	highFiveGuys(void)
+void	FragTrap::highFiveGuys(void)
 {
 	std::cout << "Positive high fives request!!" << std::endl;
 	return ;

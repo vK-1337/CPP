@@ -9,11 +9,11 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name), FragTrap(name),
 	ScavTrap::_energyPoints = 50;
 	FragTrap::_attackDamage = 30;
 
-    std::cout << "DiamondTrap " << this->_name << "has been created." << std::endl;
+    std::cout << "DiamondTrap " << this->_name << " has been created." << std::endl;
 }
 
 DiamondTrap::~DiamondTrap() {
-    std::cout << "DiamondTrap " << this->_name << "has been destroyed." << std::endl;
+    std::cout << "DiamondTrap " << this->_name << " has been destroyed." << std::endl;
 }
 
 void DiamondTrap::whoAmI()

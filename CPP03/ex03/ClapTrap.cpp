@@ -18,6 +18,7 @@ ClapTrap&   ClapTrap::operator=( const ClapTrap& rhs ) {
     this->_hitPoints = rhs._hitPoints;
     this->_energyPoints = rhs._energyPoints;
     this->_attackDamage = rhs._attackDamage;
+    std::cout << "ClapTrap " << this->_name << " has been copied with copy assignement operator." << std::endl;
     return *this;
 }
 
@@ -55,7 +56,7 @@ void ClapTrap::takeDamage(unsigned int amount)
     }
     else
     {
-        std::cout << "ClapTrap " << this->_name << " take " << amount << " points of damage! It has " << this->_hitPoints << "left." << std::endl;
+        std::cout << "ClapTrap " << this->_name << " take " << amount << " points of damage! It has " << this->_hitPoints << " left." << std::endl;
         this->_hitPoints -= amount;
         if (this->_hitPoints <= 0)
             std::cout << "ClapTrap " << this->_name << " is totally broken.";

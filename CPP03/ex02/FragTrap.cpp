@@ -1,6 +1,6 @@
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(std::string name) : ScavTrap(name)
+FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
 	this->_hitPoints = 100;
 	this->_energyPoints = 100;
@@ -10,10 +10,11 @@ FragTrap::FragTrap(std::string name) : ScavTrap(name)
 }
 FragTrap::~FragTrap()
 {
+    std::cout << "FragTrap " << this->_name << " has been destroyed." << std::endl;
 	return ;
 }
 
-void	highFiveGuys(void)
+void	FragTrap::highFiveGuys(void)
 {
 	std::cout << "Positive high fives request!!" << std::endl;
 	return ;

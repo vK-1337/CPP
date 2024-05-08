@@ -24,6 +24,7 @@ ClapTrap&   ClapTrap::operator=( const ClapTrap& rhs ) {
     this->_hitPoints = rhs._hitPoints;
     this->_energyPoints = rhs._energyPoints;
     this->_attackDamage = rhs._attackDamage;
+    std::cout << "ClapTrap " << this->_name << " has been copied with copy assignement operator." << std::endl;
     return *this;
 }
 
