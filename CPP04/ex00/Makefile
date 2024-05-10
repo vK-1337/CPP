@@ -11,7 +11,7 @@ NAME = animals
 
 CC = c++
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -std=c++98 -Wall -Werror -Wextra
 
 # colors
 GREEN = \033[0;32m
