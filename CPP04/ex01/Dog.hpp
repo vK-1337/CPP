@@ -11,7 +11,7 @@ class Dog : public Animal
     public:
         Dog();
         ~Dog();
-        virtual void makeSound() const override;
+        void makeSound() const override;
 };
 
 #endif

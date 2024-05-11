@@ -8,7 +8,7 @@ class Cat : public Animal
     public:
         Cat();
         ~Cat();
-        virtual void makeSound() const override;
+        void makeSound() const override;
 };
 
 #endif
