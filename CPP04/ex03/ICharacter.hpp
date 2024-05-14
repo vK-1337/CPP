@@ -2,7 +2,10 @@
 #define ICHARACTER_HPP
 
 #include <iostream>
+#include <vector>
 #include "AMateria.hpp"
+
+std::vector<AMateria *> floor;
 
 class ICharacter
 {
@@ -13,5 +16,7 @@ public:
     virtual void unequip(int idx) = 0;
     virtual void use(int idx, ICharacter& target) = 0;
 };
+
+std::ostream& operator<<(std::ostream& os, const ICharacter& value);
 
 #endif
