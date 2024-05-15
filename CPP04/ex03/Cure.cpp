@@ -27,3 +27,7 @@ void Cure::use(ICharacter& target)
   std::cout << "* heals " << target << "'s wounds *" << std::endl;
   return;
 }
+AMateria* clone()
+{
+    return;
+}

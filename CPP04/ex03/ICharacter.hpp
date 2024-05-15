@@ -1,11 +1,10 @@
 #ifndef ICHARACTER_HPP
 #define ICHARACTER_HPP
 
-#include <iostream>
-#include <vector>
 #include "AMateria.hpp"
+#include <ostream>
 
-std::vector<AMateria *> floor;
+class AMateria;
 
 class ICharacter
 {

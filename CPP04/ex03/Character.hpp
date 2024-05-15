@@ -1,7 +1,10 @@
 #ifndef CHARACTER_HPP
 #define CHARACTER_HPP
 
-#include "ICharacter.hpp"
+#include "header.hpp"
+
+std::vector<AMateria *> trash_floor;
+
 class Character : public ICharacter
 {
   private:

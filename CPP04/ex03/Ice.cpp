@@ -27,3 +27,8 @@ void Ice::use(ICharacter& target)
   std::cout << "* shoots an icebolt at " << target << " *" << std::endl;
   return;
 }
+
+AMateria* clone()
+{
+    return;
+}

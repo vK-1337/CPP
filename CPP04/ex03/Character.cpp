@@ -2,7 +2,10 @@
 
 Character::Character(std::string const &name) : _name(name)
 {
-  std::cout << "A Character has been created" << std::endl;
+    for (int i = 0; i < 4; i++) {
+        this->_inventory[i] = NULL;
+    }
+    std::cout << "A Character has been created" << std::endl;
 }
 Character::~Character()
 {
@@ -56,7 +59,7 @@ void Character::unequip(int idx)
     std::cout << "Can't unequip this item" << std::endl;
     return;
   }
-  floor.push_back(_inventory[idx]);
+  trash_floor.push_back(_inventory[idx]);
   _inventory[idx] = nullptr;
   return;
 }

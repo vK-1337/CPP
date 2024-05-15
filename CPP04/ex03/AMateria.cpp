@@ -1,5 +1,4 @@
 #include "AMateria.hpp"
-#include <iostream>
 
 AMateria::AMateria()
 {
@@ -35,7 +34,7 @@ AMateria &AMateria::operator=(const AMateria& rhs)
 std::string const &AMateria::getType() const
 {
   return (this->_type);
-} //Returns the materia type
+}
 
 
 AMateria* AMateria::clone() const
