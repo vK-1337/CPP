@@ -30,3 +30,10 @@ Cat& Cat::operator=( const Cat& rhs ) {
     std::cout << "Animal " << this->_type << " has been copied with copy assignement operator." << std::endl;
     return *this;
 }
+
+Cat::Cat(const Cat &rhs)
+{
+    *this = rhs;
+    std::cout << "Cat copy constructor called" << std::endl;
+    return;
+}

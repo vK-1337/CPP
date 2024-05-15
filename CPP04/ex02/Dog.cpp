@@ -30,3 +30,10 @@ Dog& Dog::operator=( const Dog& rhs ) {
     std::cout << "Animal " << this->_type << " has been copied with copy assignement operator." << std::endl;
     return *this;
 }
+
+Dog::Dog(const Dog &rhs)
+{
+    *this = rhs;
+    std::cout << "Dog copy constructor called" << std::endl;
+    return;
+}

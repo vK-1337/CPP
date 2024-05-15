@@ -1,4 +1,5 @@
 #include "Character.hpp"
+#include <vector>
 
 Character::Character(std::string const &name) : _name(name)
 {
@@ -41,16 +42,22 @@ std::string const & Character::getName() const
 
 void Character::equip(AMateria* m)
 {
-  for (int i = 0; i < 4; i++)
-  {
-    if (this->_inventory[i] == nullptr)
+    for (int i = 0; i < 4; i++)
     {
-      this->_inventory[i] = m;
-      std::cout << m->getType() << " materia is now equipped in slot number " << i + 1 << std::endl;
-      return;
+        if (this->_inventory[i] == nullptr)
+        {
+            for (auto it = trash_floor.begin(); it != trash_floor.end(); ++it) {
+            if (*it == m) {
+                    *it = nullptr;
+                    break;
+                }
+            }
+            this->_inventory[i] = m;
+            std::cout << m->getType() << " materia is now equipped in slot number " << i + 1 << std::endl;
+            return;
+        }
     }
-  }
-  std::cout <<  this->getName() << "'s inventory is full!" << std::endl;
+    std::cout <<  this->getName() << "'s inventory is full!" << std::endl;
 }
 void Character::unequip(int idx)
 {

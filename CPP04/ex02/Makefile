@@ -1,5 +1,5 @@
 SRCS = 	main.cpp \
-		Animal.cpp \
+		AAnimal.cpp \
 		Brain.cpp \
 		Dog.cpp \
 		Cat.cpp \

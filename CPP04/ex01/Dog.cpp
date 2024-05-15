@@ -21,6 +21,13 @@ void Dog::makeSound() const
 	return ;
 }
 
+Dog::Dog(const Dog &rhs)
+{
+    *this = rhs;
+    std::cout << "Dog copy constructor called" << std::endl;
+    return;
+}
+
 Dog& Dog::operator=( const Dog& rhs ) {
     if (this != &rhs)
     {

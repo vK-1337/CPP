@@ -3,7 +3,8 @@
 
 #include "header.hpp"
 
-std::vector<AMateria *> trash_floor;
+extern std::vector<AMateria *> trash_floor;
+
 
 class Character : public ICharacter
 {

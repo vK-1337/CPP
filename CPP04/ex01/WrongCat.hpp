@@ -8,7 +8,9 @@ class WrongCat : public WrongAnimal
     public:
         WrongCat();
         ~WrongCat();
-        virtual void makeSound() const override;
+        WrongCat(const WrongCat &rhs);
+        WrongCat &operator=(const WrongCat& rhs);
+        void makeSound() const;
 };
 
 #endif

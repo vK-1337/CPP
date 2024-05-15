@@ -10,7 +10,7 @@ class WrongAnimal
 
     public:
         WrongAnimal();
-        ~WrongAnimal();
+        virtual ~WrongAnimal();
         WrongAnimal(const WrongAnimal &rhs);
         virtual WrongAnimal &operator=(const WrongAnimal& rhs);
         virtual void makeSound() const;

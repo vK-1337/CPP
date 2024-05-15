@@ -23,10 +23,13 @@ int main()
 
     Brain *copy = new Brain();
 
+    delete copy;
     copy = test;
 
     std::cout << copy->getIdea(0) << std::endl;
     std::cout << copy->getIdea(1) << std::endl;
     std::cout << copy->getIdea(2) << std::endl;
+
+    delete test;
     return (0);
 }
