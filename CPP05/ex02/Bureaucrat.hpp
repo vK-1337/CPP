@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -21,7 +21,7 @@ class Bureaucrat
         unsigned int getGrade() const;
         void upgrade(); // Remember that upgrade means grade--;
         void downgrade(); // Remember that downgrade means grade++;
-        void signForm(Form &form);
+        void signForm(AForm &form);
 
         class GradeTooHighException : public std::exception
         {

@@ -1,5 +1,5 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::~Bureaucrat() {}
 
@@ -20,12 +20,12 @@ Bureaucrat::Bureaucrat(const Bureaucrat &rhs)
     return;
 }
 
-void Bureaucrat::signForm(Form &form)
+void Bureaucrat::signForm(AForm &form)
 {
     try {
         form.beSigned(*this);
         std::cout << *this << " signed " << form.getName() << "." << std::endl;
-    } catch (Form::GradeTooHighException &e) {
+    } catch (AForm::GradeTooHighException &e) {
         std::cout << *this << "couldn't sign " << form.getName() << " because " << e.what() << std::endl;
     }
 }
