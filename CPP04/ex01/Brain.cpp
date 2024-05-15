@@ -20,7 +20,31 @@ Brain::Brain(const Brain &rhs)
 }
 
 Brain&   Brain::operator=( const Brain& rhs ) {
-    copy(rhs._ideas->begin(), rhs._ideas->end(), this->_ideas->begin());
+    if ( this != &rhs)
+    {
+        copy(rhs._ideas->begin(), rhs._ideas->end(), this->_ideas->begin());
+    }
     std::cout << "Brain ideas has been copied with copy assignement operator." << std::endl;
     return *this;
+}
+
+const std::string& Brain::getIdea(int index) const
+{
+    if (index < 0 || index > 100)
+    {
+        std::cout << "Wrong index ! Possible indexes : [0] ... [100] included." << std::endl;
+        return NULL;
+    }
+    return _ideas[index];
+}
+
+void Brain::setIdea(int index, const std::string& idea)
+{
+    if (index < 0 || index > 100)
+    {
+        std::cout << "Wrong index ! Possible indexes : [0] ... [100] included." << std::endl;
+        return;
+    }
+    _ideas[index] = idea;
+    return;
 }

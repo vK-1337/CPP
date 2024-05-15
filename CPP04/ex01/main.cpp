@@ -6,9 +6,27 @@ int main()
 {
     const Animal *cat = new Cat();
     const Animal *dog = new Dog();
-    Brain *brain1 = new Brain();
-    Brain *brain2 = new Brain();
-    delete(cat);
-    delete(dog);
+    delete cat;
+    delete dog;
+
+    const Animal* animals[4] = { new Dog(), new Dog(), new Cat(), new Cat() };
+
+    for ( int i = 0; i < 4; i++ ) {
+        delete animals[i];
+    }
+
+    Brain *test = new Brain();
+
+    test->setIdea(0, "Eat");
+    test->setIdea(1, "Meow");
+    test->setIdea(2, "Bark");
+
+    Brain *copy = new Brain();
+
+    copy = test;
+
+    std::cout << copy->getIdea(0) << std::endl;
+    std::cout << copy->getIdea(1) << std::endl;
+    std::cout << copy->getIdea(2) << std::endl;
     return (0);
 }

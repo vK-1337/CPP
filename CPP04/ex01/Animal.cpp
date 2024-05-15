@@ -28,8 +28,11 @@ Animal::Animal(const Animal &rhs)
     return;
 }
 
-Animal&   Animal::operator=( const Animal& rhs ) {
+Animal& Animal::operator=( const Animal& rhs ) {
+    if (this != &rhs)
+    {
     this->_type = rhs._type;
+    }
     std::cout << "Animal " << this->_type << " has been copied with copy assignement operator." << std::endl;
     return *this;
 }
