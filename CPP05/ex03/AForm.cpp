@@ -24,7 +24,7 @@ AForm &AForm::operator=(const AForm &rhs)
 
 AForm::AForm( const AForm& src ) : _name( src.getName() ), _signGrade( src.getSignGrade() ), _executeGrade( src.getExecuteGrade() ) {}
 
-std::string AForm::getName() const
+const std::string AForm::getName() const
 {
     return this->_name;
 }

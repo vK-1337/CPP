@@ -19,7 +19,7 @@ class AForm
         virtual ~AForm();
         virtual AForm &operator=(const AForm &rhs);
         AForm(const AForm &rhs);
-        std::string getName() const;
+        const std::string getName() const;
         unsigned int getSignGrade() const;
         unsigned int getExecuteGrade() const;
         bool isSigned() const;

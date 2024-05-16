@@ -18,7 +18,7 @@ YELLOW = \e[0;93m
 $(NAME): $(OBJS)
 	$(CC) $(OBJS) -o $(NAME)
 	@echo "	 			+---------------------+\n \
-					|$(YELLOW)Bureaucrat ex00 $(GREEN) [OK]$(NC)|\n \
+					|$(YELLOW)Bureaucrat ex01 $(GREEN) [OK]$(NC)|\n \
 					+---------------------+"
 
 

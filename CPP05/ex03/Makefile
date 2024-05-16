@@ -1,4 +1,10 @@
-SRCS = 	test.cpp \
+SRCS = 	main.cpp \
+		Bureaucrat.cpp \
+		AForm.cpp \
+		PresidentialPardonForm.cpp \
+		RobotomyRequestForm.cpp \
+		ShrubberyCreationForm.cpp \
+		Intern.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -16,7 +22,7 @@ YELLOW = \e[0;93m
 $(NAME): $(OBJS)
 	$(CC) $(OBJS) -o $(NAME)
 	@echo "	 			+---------------------+\n \
-					|$(YELLOW)Bureaucrat ex00 $(GREEN) [OK]$(NC)|\n \
+					|$(YELLOW)Bureaucrat ex03 $(GREEN) [OK]$(NC)|\n \
 					+---------------------+"
 
 
