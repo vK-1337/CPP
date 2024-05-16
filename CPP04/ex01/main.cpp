@@ -21,10 +21,7 @@ int main()
     test->setIdea(1, "Meow");
     test->setIdea(2, "Bark");
 
-    Brain *copy = new Brain();
-
-    delete copy;
-    copy = test;
+    Brain *copy = test;
 
     std::cout << copy->getIdea(0) << std::endl;
     std::cout << copy->getIdea(1) << std::endl;
