@@ -16,14 +16,16 @@ class AForm
         AForm();
     public:
         AForm(std::string name, unsigned int signGrade, unsigned int executeGrade);
-        ~AForm();
-        AForm &operator=(const AForm &rhs);
+        virtual ~AForm();
+        virtual AForm &operator=(const AForm &rhs);
         AForm(const AForm &rhs);
         const std::string getName() const;
         unsigned int getSignGrade() const;
         unsigned int getExecuteGrade() const;
         bool isSigned() const;
         void beSigned(Bureaucrat &bureaucrat);
+
+        virtual void    execute( const Bureaucrat& executor ) const = 0;
 
     class GradeTooHighException : public std::exception
         {
@@ -40,6 +42,15 @@ class AForm
             virtual const char* what() const throw()
             {
                 return "Grade is too low!";
+            }
+        };
+
+    class FormNotSignedException : public std::exception
+        {
+        public:
+            virtual const char* what() const throw()
+            {
+                return "Form is not signed!";
             }
         };
 };
