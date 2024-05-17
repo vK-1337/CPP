@@ -3,7 +3,7 @@
 
 #include "header.hpp"
 
-extern std::vector<AMateria *> trash_floor;
+// extern std::vector<AMateria *> trash_floor;
 
 
 class Character : public ICharacter
@@ -21,6 +21,7 @@ class Character : public ICharacter
     void equip(AMateria* m);
     void unequip(int idx);
     void use(int idx, ICharacter& target);
+    AMateria *getMateriaAdress(int idx);
 };
 
 #endif

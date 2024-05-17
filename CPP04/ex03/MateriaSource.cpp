@@ -37,7 +37,7 @@ MateriaSource &MateriaSource::operator=(const MateriaSource& rhs)
         for (int i = 0; i < 4; i++)
         {
             if (rhs.materias[i])
-                this->materias[i] = rhs.materias[i];
+                this->materias[i] = rhs.materias[i]->clone();
         }
     }
     std::cout << "A MateriaSource has been copied with copy assignement operator." << std::endl;
@@ -46,6 +46,8 @@ MateriaSource &MateriaSource::operator=(const MateriaSource& rhs)
 
 void MateriaSource::learnMateria(AMateria* m)
 {
+    if (m == nullptr)
+        return;
    for (int i = 0; i < 4; i++)
    {
         if (this->materias[i] == nullptr)
@@ -60,10 +62,11 @@ void MateriaSource::learnMateria(AMateria* m)
 
 AMateria* MateriaSource::createMateria(std::string const & type)
 {
-    if (type == "ice")
-        return new Ice();
-    if (type == "cure")
-        return new Cure();
-    std::cout << "Unknow type of Materia" << std::endl;
-    return 0;
+    for (int i = 0; i < 4; i++)
+    {
+        if (this->materias[i]->getType() == type)
+            return this->materias[i]->clone();
+    }
+    std::cout << "Unknown type of Materia" << std::endl;
+    return (0);
 }

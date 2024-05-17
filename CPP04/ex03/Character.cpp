@@ -4,7 +4,7 @@
 Character::Character(std::string const &name) : _name(name)
 {
     for (int i = 0; i < 4; i++) {
-        this->_inventory[i] = NULL;
+        this->_inventory[i] = nullptr;
     }
     std::cout << "A Character has been created" << std::endl;
 }
@@ -22,7 +22,12 @@ Character &Character::operator=(const Character& rhs)
 {
    if (this != &rhs)
   {
-  this->_name = rhs._name;
+    for (int i = 0; i < 4; i++)
+    {
+        if (rhs._inventory[i])
+            this->_inventory[i] = rhs._inventory[i]->clone();
+    }
+    this->_name = rhs._name;
   }
   std::cout << "Character " << this->_name << " has been copied with copy assignement operator." << std::endl;
   return *this;
@@ -42,16 +47,18 @@ std::string const & Character::getName() const
 
 void Character::equip(AMateria* m)
 {
+    if (m == nullptr)
+        return;
     for (int i = 0; i < 4; i++)
     {
         if (this->_inventory[i] == nullptr)
         {
-            for (auto it = trash_floor.begin(); it != trash_floor.end(); ++it) {
-            if (*it == m) {
-                    *it = nullptr;
-                    break;
-                }
-            }
+            // for (auto it = trash_floor.begin(); it != trash_floor.end(); ++it) {
+            // if (*it == m) {
+            //         *it = nullptr;
+            //         break;
+            //     }
+            // }
             this->_inventory[i] = m;
             std::cout << m->getType() << " materia is now equipped in slot number " << i + 1 << std::endl;
             return;
@@ -66,7 +73,6 @@ void Character::unequip(int idx)
     std::cout << "Can't unequip this item" << std::endl;
     return;
   }
-  trash_floor.push_back(_inventory[idx]);
   _inventory[idx] = nullptr;
   return;
 }
@@ -79,6 +85,16 @@ void Character::use(int idx, ICharacter& target)
   }
   _inventory[idx]->use(target);
   return;
+}
+
+AMateria *Character::getMateriaAdress(int idx)
+{
+    if (idx > 3 || idx < 0 || !_inventory[idx])
+  {
+    std::cout << "Can't get this item's address" << std::endl;
+    return nullptr;
+  }
+  return this->_inventory[idx];
 }
 
 

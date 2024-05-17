@@ -4,7 +4,6 @@
 #include <iostream>
 #include <iterator>
 #include <string>
-#include <vector>
 
 class Brain
 {
