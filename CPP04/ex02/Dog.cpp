@@ -33,6 +33,7 @@ Dog& Dog::operator=( const Dog& rhs ) {
 
 Dog::Dog(const Dog &rhs)
 {
+    this->_brain = new Brain();
     *this = rhs;
     std::cout << "Dog copy constructor called" << std::endl;
     return;

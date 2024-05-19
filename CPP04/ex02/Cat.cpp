@@ -33,6 +33,7 @@ Cat& Cat::operator=( const Cat& rhs ) {
 
 Cat::Cat(const Cat &rhs)
 {
+    this->_brain = new Brain();
     *this = rhs;
     std::cout << "Cat copy constructor called" << std::endl;
     return;
