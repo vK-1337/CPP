@@ -22,7 +22,11 @@ Brain::Brain(const Brain &rhs)
 Brain&   Brain::operator=( const Brain& rhs ) {
     if ( this != &rhs)
     {
-        copy(rhs._ideas->begin(), rhs._ideas->end(), this->_ideas->begin());
+        for (int i = 0; i < 100; i++)
+        {
+            if (!rhs._ideas[i].empty())
+                this->_ideas[i] = rhs._ideas[i];
+        }
     }
     std::cout << "Brain ideas has been copied with copy assignement operator." << std::endl;
     return *this;

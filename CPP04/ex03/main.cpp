@@ -37,7 +37,6 @@ int main (void)
     tmp = src->createMateria("cure");
     me->equip(tmp);
 
-
     me->use(0, *bob);
     me->use(1, *bob);
     me->equip(NULL);
@@ -55,6 +54,6 @@ int main (void)
     delete src;
 
     // clear_floor(trash_floor);
-    
+
     return 0;
 }

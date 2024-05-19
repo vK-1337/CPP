@@ -20,7 +20,7 @@ NC = \033[0m
 YELLOW = \e[0;93m
 
 $(NAME): $(OBJS)
-	$(CC) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	@echo "	 			+---------------------+\n \
 					|  $(YELLOW)   Animals  $(GREEN)[OK]$(NC)   |\n \
 					+---------------------+"

@@ -15,18 +15,30 @@ int main()
         delete animals[i];
     }
 
-    Brain *test = new Brain();
+    Brain test;
 
-    test->setIdea(0, "Eat");
-    test->setIdea(1, "Meow");
-    test->setIdea(2, "Bark");
+    test.setIdea(0, "Eat");
+    test.setIdea(1, "Meow");
+    test.setIdea(2, "Bark");
 
-    Brain *copy = new Brain();
+    std::cout << test.getIdea(0) << std::endl;
+    std::cout << test.getIdea(1) << std::endl;
+    std::cout << test.getIdea(2) << std::endl;
+
+    Brain copy;
 
     copy = test;
 
-    std::cout << copy->getIdea(0) << std::endl;
-    std::cout << copy->getIdea(1) << std::endl;
-    std::cout << copy->getIdea(2) << std::endl;
+    test.setIdea(0, "EAAAAT");
+
+    std::cout << copy.getIdea(0) << std::endl;
+    std::cout << copy.getIdea(1) << std::endl;
+    std::cout << copy.getIdea(2) << std::endl;
+    
+    copy = test;
+
+    std::cout << copy.getIdea(0) << std::endl;
+    std::cout << copy.getIdea(1) << std::endl;
+    std::cout << copy.getIdea(2) << std::endl;
     return (0);
 }

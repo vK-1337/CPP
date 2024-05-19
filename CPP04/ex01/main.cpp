@@ -23,6 +23,11 @@ int main()
 
     Brain *copy = test;
 
+    Dog basic;
+    {
+    Dog tmp = basic;
+    }
+
     std::cout << copy->getIdea(0) << std::endl;
     std::cout << copy->getIdea(1) << std::endl;
     std::cout << copy->getIdea(2) << std::endl;

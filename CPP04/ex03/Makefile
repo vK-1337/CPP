@@ -20,14 +20,14 @@ NC = \033[0m
 YELLOW = \e[0;93m
 
 $(NAME): $(OBJS)
-	$(CC) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	@echo "	 			+---------------------+\n \
 					|  $(YELLOW)   Materia  $(GREEN)[OK]$(NC)   |\n \
 					+---------------------+"
 
 
 .c.o:
-	$(CC) $(CFLAGS) -c $< -o ${<:.c=.o}
+	$(CC) -c $< -o ${<:.c=.o}
 
 all: $(NAME)
 
