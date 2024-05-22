@@ -28,5 +28,5 @@ int main( void )
     } catch (std::exception &e) {
         std::cout << "An error occured: " << e.what() << std::endl;
     }
-    return EXIT_SUCCESS;
+    return (0);
 }

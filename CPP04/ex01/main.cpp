@@ -23,6 +23,9 @@ int main()
 
     Brain *copy = test;
 
+    Brain *copy3(test);
+    Brain copy2(*test);
+
     Dog basic;
     {
     Dog tmp = basic;
@@ -32,6 +35,15 @@ int main()
     std::cout << copy->getIdea(1) << std::endl;
     std::cout << copy->getIdea(2) << std::endl;
 
+    std::cout << copy3->getIdea(0) << std::endl;
+    std::cout << copy3->getIdea(1) << std::endl;
+    std::cout << copy3->getIdea(2) << std::endl;
+
+    std::cout << copy2.getIdea(0) << std::endl;
+    std::cout << copy2.getIdea(1) << std::endl;
+    std::cout << copy2.getIdea(2) << std::endl;
+
+    delete copy;
     delete test;
     return (0);
 }

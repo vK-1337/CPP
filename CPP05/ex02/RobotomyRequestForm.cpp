@@ -1,5 +1,6 @@
 #include "RobotomyRequestForm.hpp"
-#include <random>
+#include <cstdlib>
+#include <ctime>
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string &target) : AForm("RobotomyRequestForm", 72, 45), _target(target) {}
 
@@ -13,21 +14,16 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &r
     return *this;
 }
 
-void        RobotomyRequestForm::execute( const Bureaucrat& executor ) const
+void RobotomyRequestForm::execute( const Bureaucrat& executor ) const
 {
     if (!this->isSigned())
         throw AForm::FormNotSignedException();
     if (executor.getGrade() > this->getExecuteGrade())
         throw AForm::GradeTooLowException();
 
-    std::random_device rd;
-    std::mt19937 gen(rd());
+    srand(time(0));
 
-    // Définit la plage des nombres aléatoires (0-100)
-    std::uniform_int_distribution<> dis(0, 100);
-
-    // Génère un nombre aléatoire
-    int randomNumber = dis(gen);
+    int randomNumber = rand() % 101;
     if (randomNumber % 2)
         std::cout << _target << " has been successfully robotomized" << std::endl;
     else

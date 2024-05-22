@@ -4,7 +4,7 @@
 Character::Character(std::string const &name) : _name(name)
 {
     for (int i = 0; i < 4; i++) {
-        this->_inventory[i] = nullptr;
+        this->_inventory[i] = NULL;
     }
     std::cout << "A Character has been created" << std::endl;
 }
@@ -47,15 +47,15 @@ std::string const & Character::getName() const
 
 void Character::equip(AMateria* m)
 {
-    if (m == nullptr)
+    if (m == NULL)
         return;
     for (int i = 0; i < 4; i++)
     {
-        if (this->_inventory[i] == nullptr)
+        if (this->_inventory[i] == NULL)
         {
             // for (auto it = trash_floor.begin(); it != trash_floor.end(); ++it) {
             // if (*it == m) {
-            //         *it = nullptr;
+            //         *it = NULL;
             //         break;
             //     }
             // }
@@ -73,7 +73,7 @@ void Character::unequip(int idx)
     std::cout << "Can't unequip this item" << std::endl;
     return;
   }
-  _inventory[idx] = nullptr;
+  _inventory[idx] = NULL;
   return;
 }
 void Character::use(int idx, ICharacter& target)
@@ -92,7 +92,7 @@ AMateria *Character::getMateriaAdress(int idx)
     if (idx > 3 || idx < 0 || !_inventory[idx])
   {
     std::cout << "Can't get this item's address" << std::endl;
-    return nullptr;
+    return NULL;
   }
   return this->_inventory[idx];
 }

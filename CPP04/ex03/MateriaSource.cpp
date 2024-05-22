@@ -5,7 +5,7 @@
 MateriaSource::MateriaSource()
 {
      for (int i = 0; i < 4; i++)
-        this->materias[i] = nullptr;
+        this->materias[i] = NULL;
     return;
 }
 MateriaSource::~MateriaSource()
@@ -13,8 +13,10 @@ MateriaSource::~MateriaSource()
     for (int i = 0; i < 4; i++)
     {
         if (this->materias[i])
-        delete this->materias[i];
-        this->materias[i] = nullptr;
+        {
+            delete this->materias[i];
+        }
+        this->materias[i] = NULL;
     };
 }
 MateriaSource::MateriaSource(const MateriaSource &rhs)
@@ -31,8 +33,10 @@ MateriaSource &MateriaSource::operator=(const MateriaSource& rhs)
         for (int i = 0; i < 4; i++)
         {
             if (this->materias[i])
+            {
                 delete this->materias[i];
-                this->materias[i] = nullptr;
+                this->materias[i] = NULL;
+            }
         }
         for (int i = 0; i < 4; i++)
         {
@@ -46,13 +50,14 @@ MateriaSource &MateriaSource::operator=(const MateriaSource& rhs)
 
 void MateriaSource::learnMateria(AMateria* m)
 {
-    if (m == nullptr)
+    if (m == NULL)
         return;
    for (int i = 0; i < 4; i++)
    {
-        if (this->materias[i] == nullptr)
+        if (this->materias[i] == NULL)
         {
-            this->materias[i] = m;
+            this->materias[i] = m->clone();
+            delete (m);
             return;
         }
    }

@@ -9,6 +9,7 @@ Intern::~Intern() {}
 
 Intern &Intern::operator=(const Intern &rhs)
 {
+    (void) rhs;
     std::cout << "An Intern has been copied with copy assignement operator." << std::endl;
     return *this;
 }
@@ -31,7 +32,7 @@ AForm *Intern::makeForm(std::string name, std::string target)
     if (i < 3)
         return (this->*forms[i])(target);
     std::cout << "The form couldn't be created because the name specified don't exist." << std::endl;
-    return nullptr;
+    return NULL;
 }
 
 AForm *Intern::PresidentialForm(std::string target)

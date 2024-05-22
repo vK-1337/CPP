@@ -21,7 +21,7 @@ void        ShrubberyCreationForm::execute( const Bureaucrat& executor ) const
     if (executor.getGrade() > this->getExecuteGrade())
         throw AForm::GradeTooLowException();
     std::fstream new_file;
-    new_file.open(this->getName() + "_shrubbery", std::ios::out);
+    new_file.open((this->getName() + "_shrubbery").c_str(), std::ios::out);
     if (!new_file)
        throw ShrubberyCreationForm::FileNotCreatedException();
     new_file << "ASCII trees";

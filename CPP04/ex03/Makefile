@@ -26,8 +26,8 @@ $(NAME): $(OBJS)
 					+---------------------+"
 
 
-.c.o:
-	$(CC) -c $< -o ${<:.c=.o}
+.cpp.o:
+	$(CC) $(CFLAGS) -c $< -o ${<:.cpp=.o}
 
 all: $(NAME)
 

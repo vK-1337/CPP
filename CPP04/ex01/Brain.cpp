@@ -14,7 +14,11 @@ Brain::~Brain()
 
 Brain::Brain(const Brain &rhs)
 {
-    *this = rhs;
+    for(int i  = 0; i < 100; i++)
+    {
+        if (!rhs._ideas[i].empty())
+            this->_ideas[i] = rhs.getIdea(i);
+    }
     std::cout << "Brain copy constructor called" << std::endl;
     return;
 }
@@ -33,7 +37,6 @@ const std::string& Brain::getIdea(int index) const
     if (index < 0 || index > 100)
     {
         std::cout << "Wrong index ! Possible indexes : [0] ... [100] included." << std::endl;
-        return NULL;
     }
     return _ideas[index];
 }

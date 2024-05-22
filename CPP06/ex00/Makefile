@@ -3,7 +3,7 @@ SRCS = main.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 
-NAME = animals
+NAME = convert
 
 CC = c++
 
@@ -15,14 +15,13 @@ NC = \033[0m
 YELLOW = \e[0;93m
 
 $(NAME): $(OBJS)
-	$(CC) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	@echo "	 			+---------------------+\n \
-					|  $(YELLOW)   Animals  $(GREEN)[OK]$(NC)   |\n \
+					|$(YELLOW)Scalar Converter$(GREEN) [OK]$(NC)|\n \
 					+---------------------+"
 
-
-.c.o:
-	$(CC) $(CFLAGS) -c $< -o ${<:.c=.o}
+.cpp.o:
+	$(CC) $(CFLAGS) -c $< -o ${<:.cpp=.o}
 
 all: $(NAME)
 

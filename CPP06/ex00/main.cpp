@@ -1,19 +1,16 @@
+#include "ScalarConverter.hpp"
+
 #include <iostream>
 #include <string>
 
-int main() {
-    std::string myString = "Hello, world!";
-    std::cout << myString << std::endl; // Output: Hello, world!
+int main(int ac, char** av) {
+    if (ac != 2)
+    {
+        std::cout << "Wrong number of arguments" << std::endl;
+        std::cout << "Usage : ./convert [literal]" << std::endl;
+        return 1;
+    }
+    ScalarConverter converter;
+    converter.convert(av[1]);
     return 0;
 }
-
-"Coucou";
-"e";
-"10";
-"1.0f";
-"1.0";
-
-"e"
-"101"
-"101.0f"
-"101.0"
