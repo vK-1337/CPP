@@ -10,5 +10,5 @@ int main(void)
 
     std::cout << Serialization::deserialize(Serialization::serialize(&test))->stupid_stuff << std::endl ;
 
-    return EXIT_SUCCESS;
+    return (0);
 }

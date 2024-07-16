@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <cctype>
+#include <cstdlib>
 
 void ScalarConverter::convert(std::string literal)
 {
@@ -13,10 +14,10 @@ void ScalarConverter::convert(std::string literal)
     std::string pseudoLiterals[6] = {"-inff", "+inff", "-inf", "+inf", "nan", "nanf"};
     bool found = false;
     bool positivePseudoLiteral = false;
-    for(const std::string& element : pseudoLiterals) {
-        if(literal == element) {
+    for(int i = 0; i < 6; i++) {
+        if(literal == pseudoLiterals[i]) {
             found = true;
-            if (element[0] == '+')
+            if (pseudoLiterals[i][0] == '+')
                 positivePseudoLiteral = true;
             break;
         }
@@ -37,7 +38,7 @@ void ScalarConverter::convert(std::string literal)
         std::cout << doubleConversion << std::endl;
         return;
     }
-    if (literal.back() == 'f')
+    if (literal[literal.length() - 1] == 'f')
     {
         floatConversion = std::atof(literal.c_str());
         intConversion = static_cast<int> (floatConversion);
@@ -84,13 +85,13 @@ void ScalarConverter::convert(std::string literal)
     bool literalIsInt = true;
     bool firstChar = true;
 
-    for (char c : literal) {
-        if (firstChar && (c == '-' || c == '+'))
+    for (unsigned long i = 0; i < literal.length(); i++) {
+        if (firstChar && (literal[i] == '-' || literal[i] == '+'))
         {
             firstChar = false;
             continue;
         }
-        if (!std::isdigit(c)) {
+        if (!std::isdigit(literal[i])) {
             literalIsInt = false;
         }
     }

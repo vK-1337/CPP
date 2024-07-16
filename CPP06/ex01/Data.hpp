@@ -7,5 +7,4 @@ typedef struct Data {
     std::string stupid_stuff;
 } Data;
 
-
 #endif
