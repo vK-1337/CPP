@@ -6,14 +6,14 @@ template <typename T>
 class Array
 {
   private:
-    T *array;
+    T *_array;
     unsigned int size;
 
   public:
 
   Array(void) : array(NULL), size(0) {}
-  Array(unsigned int n) : array(new T[n]), size(n) {}
-  Array(const Array &rhs) : array(new T[rhs.size]), size(rhs.size)
+  Array(unsigned int n) : _array(new T[n]), size(n) {}
+  Array(const Array &rhs) : _array(new T[rhs.size]), size(rhs.size)
   {
     for (unsigned int i = 0; i < size; i++)
       array[i] = rhs.array[i];

@@ -14,6 +14,7 @@ void ScalarConverter::convert(std::string literal)
     std::string pseudoLiterals[6] = {"-inff", "+inff", "-inf", "+inf", "nan", "nanf"};
     bool found = false;
     bool positivePseudoLiteral = false;
+    
     for(int i = 0; i < 6; i++) {
         if(literal == pseudoLiterals[i]) {
             found = true;
@@ -22,6 +23,7 @@ void ScalarConverter::convert(std::string literal)
             break;
         }
     }
+
     if (found)
     {
         doubleConversion = std::atof(literal.c_str());
@@ -38,6 +40,7 @@ void ScalarConverter::convert(std::string literal)
         std::cout << doubleConversion << std::endl;
         return;
     }
+
     if (literal[literal.length() - 1] == 'f')
     {
         floatConversion = std::atof(literal.c_str());
