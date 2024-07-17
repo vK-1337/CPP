@@ -25,6 +25,13 @@ int main(int ac, char **av)
 
   std::cout << sp.longestSpan() << std::endl;
 
-  
+  Span<int> sp2(300);
+
+  sp2.addRange(150, 300);
+
+  sp2.addRange(1, 149);
+
+  sp2.printVec();
+
   return (0);
 }
