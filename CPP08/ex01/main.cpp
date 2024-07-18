@@ -2,7 +2,7 @@
 #include <iostream>
 #include <algorithm>
 
-#include "span.hpp"
+#include "span.tpp"
 
 int main(int ac, char **av)
 {

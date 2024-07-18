@@ -2,7 +2,8 @@
 #include <iostream>
 #include <vector>
 
-template <typename T> class Span
+template <typename T>
+class Span
 {
   private:
 	std::vector<T> vec;
