@@ -50,6 +50,7 @@
     "stdexcept": "cpp",
     "streambuf": "cpp",
     "typeinfo": "cpp",
-    "bitcoinexchange.hpp": "c"
+    "bitcoinexchange.hpp": "c",
+    "sstream": "cpp"
   }
 }

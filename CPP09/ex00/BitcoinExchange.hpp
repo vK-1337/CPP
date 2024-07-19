@@ -36,8 +36,9 @@ public:
     }
 };
 
-std::multimap<std::string, float> fillMapWithCsv(void);
-std::multimap<std::string, float> fillMapWithInput(char *map_path);
+std::multimap<std::string, std::string> fillMapWithCsv(void);
+std::multimap<std::string, std::string> fillMapWithInput(char *map_path);
 int verify_first_line_input(std::string buffer);
 std::string check_input(std::string buffer);
 int bad_date(std::string date);
+void print_all_costs(std::multimap<std::string, std::string> input, std::multimap<std::string, std::string> csv_map);

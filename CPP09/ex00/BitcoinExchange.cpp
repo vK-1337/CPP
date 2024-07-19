@@ -1,9 +1,9 @@
 #include "BitcoinExchange.hpp"
 
-std::multimap<std::string , float> fillMapWithCsv(void)
+std::multimap<std::string , std::string> fillMapWithCsv(void)
 {
   	std::fstream	csv_file;
-    std::multimap<std::string , float> csv_map;
+    std::multimap<std::string , std::string> csv_map;
 
     csv_file.open("data.csv", std::ios::in);
 	  if (!csv_file)
@@ -14,20 +14,17 @@ std::multimap<std::string , float> fillMapWithCsv(void)
     while (std::getline(csv_file, buffer))
     {
       std::string key = std::strtok(const_cast<char *>(buffer.c_str()), ",");
-      char *value_str = std::strtok(NULL, ",");
-      if (!key.empty() && value_str)
-      {
-        float value = strtof(value_str, NULL);
-        csv_map.insert(std::make_pair(key, value));
-      }
+      std::string value_str = std::strtok(NULL, ",");
+      if (!key.empty() && !value_str.empty())
+        csv_map.insert(std::make_pair(key, value_str));
     }
     return (csv_map);
 }
 
-std::multimap<std::string, float> fillMapWithInput(char *map_path)
+std::multimap<std::string, std::string> fillMapWithInput(char *map_path)
 {
   std::fstream input_file;
-  std::multimap<std::string, float> input;
+  std::multimap<std::string, std::string> input;
   int line_number;
 
   input_file.open(map_path, std::ios::in);
@@ -47,20 +44,21 @@ std::multimap<std::string, float> fillMapWithInput(char *map_path)
   }
   while (std::getline(input_file, buffer))
   {
+    line_number++;
     std::string error = check_input(buffer);
     std::string key = std::strtok(const_cast<char *>(buffer.c_str()), "|");
     char *value = std::strtok(NULL, "|");
-    if (error != "OK")
-      input.insert(std::make_pair(key, strtof(value, NULL)));
+    if (error == "0")
+      input.insert(std::make_pair(key, value));
     else
-      input.insert
+      input.insert(std::make_pair(key, "error " + error));
   }
   return (input);
 }
 
 int verify_first_line_input(std::string buffer)
 {
-  if (buffer.find("date | value\n") == std::string::npos)
+  if (buffer != "date | value")
     return (0);
   return (1);
 }
@@ -78,15 +76,28 @@ std::string check_input(std::string buffer)
   if (!error)
   {
     std::string value = std::strtok(NULL, "|");
-    long atol = std::atol(value.c_str());
-    if (atol < 0)
-      error = NEG_NUMBER;
-    else if (atol > 1000 || value.size() > 10)
-      error = OVERFLOW;
+    if (value.find('.') != std::string::npos)
+    {
+      int occ = std::count(value.begin(), value.end(), '.');
+      float number = std::atof(value.c_str());
+      if (occ > 1)
+        error = BAD_FORMAT;
+      else if (number < 0)
+        error = NEG_NUMBER;
+      else if (number > 1000 || value.size() > 18)
+        error = OVERFLOW;
+    }
+    else
+    {
+      long number = std::atol(value.c_str());
+      if (number < 0)
+        error = NEG_NUMBER;
+      else if (number > 1000 || value.size() > 4)
+        error = OVERFLOW;
+    }
   }
   converter << error;
   checker = "" + converter.str();
-  std::cout << checker << std::endl;
   return (checker);
 }
 
@@ -113,4 +124,29 @@ int bad_date(std::string date)
         }
     }
     return (1);
+}
+
+void print_all_costs(std::multimap<std::string, std::string> input, std::multimap<std::string, std::string> csv_map)
+{
+  for (std::map<std::string, std::string>::iterator it = input.begin(); it != input.end(); ++it) {
+
+    if (it->second.find("error") != std::string::npos)
+    {
+      if (it->second.find("1") != std::string::npos)
+        std::cout << "Error: bad input => " << it->first << std::endl;
+      else if (it->second.find("2") != std::string::npos)
+        std::cout << "Error: bad date => " << it->first << std::endl;
+      else if (it->second.find("3") != std::string::npos)
+        std::cout << "Error: not a positive number." << std::endl;
+      else if (it->second.find("4") != std::string::npos)
+        std::cout << "Error: too large number." << std::endl;
+    }
+    else
+    {
+      std::multimap<std::string, std::string>::iterator lower_date = csv_map.lower_bound(it->first);
+      if (lower_date != csv_map.begin() && lower_date->first != it->first)
+        lower_date--;
+      std::cout << it->first << "=>" << it->second << " = " << atof(it->second.c_str()) * atof(lower_date->second.c_str()) << std::endl;
+    }
+  }
 }
