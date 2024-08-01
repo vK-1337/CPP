@@ -28,14 +28,5 @@ int main(int ac, char **av)
     std::cout << "CSV has not been mapped correctly" << std::endl;
     return (EXIT_FAILURE);
   }
-  return (0);
+  return (EXIT_SUCCESS);
 }
-// !OK Commencer par stocker le fichier CSV dans une map.
-
-// ? Ensuite verifier l'integrite du fichier input.txt
-
-// ? Stocker input.txt dans un .map
-
-// ? Ensuite iterer a travers ce .map afin de print un par un les equivalents en prix
-
-// ?

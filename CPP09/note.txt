@@ -2,6 +2,6 @@
 
 EX00 Map
 
-EX01 Deck
+EX01 Deque
 
 EX02 List && vector

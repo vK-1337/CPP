@@ -126,7 +126,7 @@ int bad_date(std::string date)
     return (1);
 }
 
-void print_all_costs(std::multimap<std::string, std::string> input, std::multimap<std::string, std::string> csv_map)
+void  print_all_costs(std::multimap<std::string, std::string> input, std::multimap<std::string, std::string> csv_map)
 {
   for (std::map<std::string, std::string>::iterator it = input.begin(); it != input.end(); ++it) {
 
