@@ -16,8 +16,8 @@ YELLOW = \e[0;93m
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	@echo "	 			+---------------------+\n \
-		|  $(YELLOW)  iter $(GREEN)[OK]$(NC)   |\n \
-		+---------------------+"
+					|  $(YELLOW)    iter $(GREEN)[OK]$(NC)      |\n \
+					+---------------------+"
 
 
 .cpp.o:

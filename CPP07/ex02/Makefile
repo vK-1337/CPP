@@ -6,7 +6,7 @@ NAME = array
 
 CC = c++
 
-CFLAGS = -std=c++98 -Wall -Werror -Wextra
+CFLAGS = -std=c++98 -Wall -Werror -Wextra -g3
 
 # colors
 GREEN = \033[0;32m

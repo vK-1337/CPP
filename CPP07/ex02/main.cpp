@@ -2,9 +2,14 @@
 
 int main(void)
 {
+  Array<int> empty;
   Array<int> a(10);
   Array<int> b(a);
   Array<int> c = b;
+
+
+  std::cout << "empty.get_size() = ";
+  std::cout << empty.get_size() << std::endl << std::endl;
 
   std::cout << "a.get_size() = ";
   std::cout << a.get_size() << std::endl;
@@ -31,6 +36,7 @@ int main(void)
   }
 
   std::cout << std::endl;
+  std::cout << "b after a has been set to other values" << std::endl;
   for (unsigned  i = 0; i < b.get_size(); i++)
   {
     std::cout << "b[" << i << "] = ";
@@ -38,6 +44,7 @@ int main(void)
   }
 
   std::cout << std::endl;
+  std::cout << "displaying c after we done c = b" << std::endl;
   for (unsigned  i = 0; i < c.get_size(); i++)
   {
     std::cout << "c[" << i << "] = ";
